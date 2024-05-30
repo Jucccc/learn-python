@@ -1,7 +1,8 @@
 from collections import namedtuple
 
-
 # Tuple is an immutable version of list
+# A tuple is a collection which is ordered and unchangeable.
+# Tuples are written with round brackets.
 
 iron_man = ('Tony Stark', 2009)
 print('type of iron_man:', type(iron_man))

@@ -1,5 +1,10 @@
 from collections import defaultdict
 
+# A dictionary is a collection which is ordered*, changeable and do not allow duplicates.
+# Dictionaries are written with curly brackets, and have keys and values.
+# * Note: As of Python version 3.7, dictionaries are ordered. In Python 3.6 and earlier, dictionaries are unordered.
+# - from W3Schools.com
+
 '''
 avengers = {1:'Tony',2:'Steve',3:'Thor'}
 

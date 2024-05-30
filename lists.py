@@ -1,3 +1,5 @@
+# Lists are created using square brackets:
+
 rainbow = ["violet",'indigo','blue','green','yellow','orange','red']
 print('rainbow:',rainbow)
 rainbow = rainbow[::-1]
