@@ -1,3 +1,7 @@
+# A set is a collection which is unordered, unchangeable*, and unindexed. 
+# * Note: Set items are unchangeable, but you can remove items and add new items.
+# - from W3Schools.com
+
 hero_name = ['IronMan','Captain America','Hulk']
 print(type(hero_name))
 hero_name_set = set(['IronMan','Captain America','Hulk'])
@@ -15,9 +19,9 @@ print(hero_name_set_3)
 print(list(hero_name_string))
 
 hero_name_curly = {'IronMan','Captain America','Hulk'}
-print(type(hero_name_curly))
+print('Type of hero_name_curly:',type(hero_name_curly))
 empty_hero_name = {}
-print(type(empty_hero_name))
+print('Type of empty_hero_name:',type(empty_hero_name))
 empty_hero_name_two = set()
 print(type(empty_hero_name_two))
 
@@ -72,3 +76,36 @@ print(my_set.issubset(my_new_set))
 # a.difference_update(b) or a -= b [|c...]
 # a.simmetric_difference_update(b) or a ^= b [|c...]
 # frozenset()
+
+a = frozenset(['Tony','Bruce','Peter'])
+print(a)
+print(id(a))
+b = {'Strange','Thor','Tony'}
+a &= b # a = a & b
+print(a)
+print(id(a))
+
+# Creating a set of sets - not working:
+'''
+c = set(['Tony'])
+d = set(['Steve'])
+e = set(['Bruce'])
+f = {c,d,e}
+print(f)
+'''
+# a Dictionary key also cannot be a set:
+#real_name = ({'Robert','Tony'})
+#hero_name = ({'Chris','Steve'})
+
+# but with frozenset it's possible:
+real_name = frozenset({'Robert','Tony'})
+hero_name = frozenset({'Chris','Steve'})
+avengers = {real_name:'Iron Man',hero_name:'Cap'}
+print(avengers)
+
+# Set Comprehension - does it remove duplicates if I use curly braces (when creating a set)?
+
+num = [4,3,2,1,5,4,3,2,1,5]
+set_com = {n*n for n in num}
+print(set_com)
+print('Type of set_com:',type(set_com))
