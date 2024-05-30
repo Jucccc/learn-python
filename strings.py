@@ -1,0 +1,1 @@
+# Strings can be written in single, double and triple quotes
