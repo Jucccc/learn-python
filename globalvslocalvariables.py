@@ -24,6 +24,37 @@ print('variable outside function:',a)
 def min():
     pass
 
-#c = min([1,2,3,4]) #  - not working because we override the function
+#c = min([1,2,3,4]) #  - not working because we override the built-in function
 c = min()
 print(c)
+
+def outer():
+    x = 'outer of x'
+    def inner():
+        x = 'inner of x' # enclosing scope
+        print(x)
+    inner()
+    print(x)
+
+outer()
+
+def outer2():
+    y = 'outer of y'
+    def inner():
+        nonlocal y # overwrite scope
+        y = 'inner of y'
+        print(y)
+    inner()
+    print(y)
+
+outer2()
+
+# Closure functions - inner function variable can access the outer function variables
+def add_to_fun(val1):
+    def add_fun(val2):
+        return val1 + val2
+    return add_fun
+
+add_fun2 = add_to_fun(3)
+print(add_fun2(4))
+print(add_to_fun(3))
