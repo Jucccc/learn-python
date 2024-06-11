@@ -1,6 +1,6 @@
 # priority rule: LEGB - local, enclosing scope, global, built-in
 # there is a global keyword
-import builtins
+import builtins, math
 
 m = 1
 def sq(n):
@@ -56,5 +56,53 @@ def add_to_fun(val1):
     return add_fun
 
 add_fun2 = add_to_fun(3)
+print(add_fun2.__name__)
 print(add_fun2(4))
 print(add_to_fun(3))
+
+def outer_func_print_output():
+    message = 'Python for fun'
+    def inner_func():
+        print(message)
+    return inner_func() # calling the inner_func()
+
+outer_func_print_output()
+
+def outer_func_func_output():
+    message = 'Python for fun'
+    def inner_func():
+        print(message)
+    return inner_func # do not calling the inner_func() just return it
+new_func = outer_func_func_output()
+print(new_func.__name__)
+new_func() # call here
+
+# if we are not allowed to modify the existing function but we want to add additional functionality
+# - decorate the original function:
+def check_div_op(div_op_func): # decorator function
+    def inner(a,b):
+        if b == 0:
+            print('Not allowed to divide by zero')
+            return
+        div_op_func(a,b)
+    return inner
+
+@check_div_op # pointer to the decorator function
+def div_op(a,b): # original function
+    return a/b
+
+''' No need these if we have a pointer on the original function to the decorator function:
+div_func = check_div_op(div_op)
+print(div_func(5,0))
+'''
+
+print(div_op(5,0))
+
+# return multiple values
+
+def circle(rad):
+    cir = 2 * math.pi * rad
+    area = math.pi * rad * rad
+    return(cir,area)
+rad = int(input('Enter the radius of the circle: '))
+print('The circumference and area are:',circle(rad))
