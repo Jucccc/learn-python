@@ -66,3 +66,75 @@ print(arr1 + arr2) # element-wise addition
 print(arr1 * arr2)
 print(arr1 / arr2)
 print(arr1 ** arr2) # element-wise exponentiation
+
+# Broadcasting - operations between arrays of different shapes
+arr1 = np.array([
+    [1,2,3]
+])
+arr2 = np.array([
+    [4],
+    [5]
+])
+print(arr1 + arr2)
+
+# Aggregation functions
+
+arr1 = np.array([1,2,3,4,5])
+print(np.sum(arr1))
+print(np.min(arr1))
+print(np.max(arr1))
+# mean and standard deviation:
+print(np.mean(arr1)) # 3.0
+print(np.std(arr1)) # 1.41421356...
+print(np.argmax(arr1)) # index of the maximum value
+
+# Boolean array operations
+
+condition = arr1 > 2 # Boolean condition - greater than 2
+result = arr1[condition] # Select elements that satisfy the condition
+print(result)
+count = np.count_nonzero(arr1 > 2) # Count the number of elements that satisfy the condition
+print(count)
+print(np.any(arr1 > 5)) # Check if any element satisfies the condition
+print(np.all(arr1 > 0)) # Check if all elements satisfy the condition
+
+# Linear Algebra with NumPy
+
+# Matrix operations
+matrix1 = np.array([
+    [1,2],
+    [3,4]
+])
+matrix2 = np.array([
+    [5,6],
+    [7,8]
+])
+print(np.add(matrix1, matrix2)) # matrix addition
+print(np.matmul(matrix1, matrix2)) # matrix multiplication
+print(np.transpose(matrix1)) # matrix transpose
+matrix3 = np.array([
+    [1,2],
+    [3,4]
+])
+print(np.linalg.det(matrix3)) # matrix determinant
+print(np.linalg.inv(matrix3)) # matrix inverse
+
+# Solving linear equations
+
+A = np.array([
+    [2,3],
+    [4,-1]
+]) # Coefficient matrix
+b = np.array([5,7]) # Right-hand side vector
+print(np.linalg.solve(A, b)) # Solving Ax = b
+
+# Eigen values and eigenvectors
+
+A = np.array([
+    [1,2],
+    [3,4]
+]) # matrix A
+
+eigenvalues, eigenvectors = np.linalg.eig(A) # Computiong eigenvalues and eigenvectors
+print(eigenvalues)
+print(eigenvectors)
