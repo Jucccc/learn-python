@@ -135,6 +135,67 @@ A = np.array([
     [3,4]
 ]) # matrix A
 
-eigenvalues, eigenvectors = np.linalg.eig(A) # Computiong eigenvalues and eigenvectors
+eigenvalues, eigenvectors = np.linalg.eig(A) # Computing eigenvalues and eigenvectors
 print(eigenvalues)
 print(eigenvectors)
+
+# Singular value decomposition
+
+A = np.array([
+    [1,2,3],
+    [4,5,6]
+]) # matrix A
+U, S, VT = np.linalg.svd(A) # Singular Value Decomposition (SVD)
+print(U) # U matrix contains the left singular vectors
+print(S) # S is a diagonal matrix containing the singular values
+print(VT) # VT is the transpose of the matrix of right singular vectors
+
+# Dot Product
+# A dot product is a fundamental operation in linear algebra
+# that calculates the sum of the element-wise products of two vectors.
+
+arr1 = np.array([1,2,3])
+arr2 = np.array([4,5,6])
+print(np.dot(arr1, arr2))
+
+# Matrix multiplication
+# matmul() function and @ operator can be used
+
+# Norms
+# Norms are measures of the size or length of vectors or matrices.
+
+# Euclidean norm of a vector:
+vector = np.array([1,2,3])
+print(np.linalg.norm(vector))
+# Frobenius norm of a matrix:
+matrix = np.array([
+    [1,2],
+    [3,4]
+])
+print(np.linalg.norm(matrix, ord='fro'))
+
+# Matrix rank
+# The rank of a matrix is the maximum number of linearly independent rows or columns
+# in the matrix.
+
+matrix = np.array([
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+])
+print(np.linalg.matrix_rank(matrix))
+
+# Universal functions (ufuncs)
+
+arr = np.array([1,2,3,4,5])
+numbers = np.array([1,10,100,1000])
+angles = np.array([0,np.pi/4,np.pi/2,np.pi])
+print(np.sqrt(arr)) # element-wise square root
+print(np.exp(arr)) # element-wise exponentiation
+print(np.sin(arr)) # element-wise sine
+print(np.log(numbers)) # compute natural logarithm of numbers
+print(np.log10(numbers)) # compute base 10 logarithm of numbers
+print(np.log2(numbers)) # compute base 2 logarithm of numbers
+print(np.sin(angles)) # compute sine of angles
+print(np.cos(angles)) # compute cosine of angles
+print(np.tan(angles)) # compute tangent of angles
